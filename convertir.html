@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<link  rel="stylesheet"  type="text/css" media="screen" href="diapo.css"/>
+<link  rel="stylesheet"  type="text/css" media="screen" href="styles.css"/>
+<body onLoad="alert('Page chargée');"  onBeforeUnload="function(e);">
+
+
+
+<h2>Bienvenue</h2>
+
+<div id="conversion " onClick="alert('Vous avez cliqué sur un bouton')">
+
+<img id="convertir" src="convertir.jpg" alt onMouseover="alert(' Passage sur une image') ; this.src='eurodollar.jpg';" onMouseout="this.src='convertir.jpg'"> <br><br>
+
+
+<script language="JavaScript">
+function dollars (form)
+{form.eur.value = form.dol.value/1.09}
+
+function euros (form)
+{ form.dol.value = form.eur.value*1.09}
+
+</script>
+<form > 
+<input type ="number" name="dol" size=15 >
+<input type ="button" value="Euros en dollars" onClick="dollars(this.form) ; change(this);" name="button" id="couleur">
+<input type="number" name="eur" size=15 >
+</form>
+
+<form > 
+<input type ="number" name="eur" size=15 >
+<input type = "button" value="Dollars en euros" onClick="euros(this.form); change(this);" name="button" id="couleur">
+<input type="number" name="dol" size=15 >
+</form> 
+
+</div>
+
+<script language="JavaScript">
+var confirmOnLeave = function(msg) {
+ 
+    window.onbeforeunload = function (e) {
+        e = e || window.event;
+        msg = msg || '';
+ 
+        // For IE and Firefox
+        if (e) {e.returnValue = msg;}
+ 
+        // For Chrome and Safari
+        return msg;
+    };
+ 
+};
+ 
+// message de confirmation générique du navigateur
+confirmOnLeave();
+ 
+// message de confirmation personnalisé
+confirmOnLeave('Vous allez perdre votre travail, êtes vous sûr(e) de vouloir quitter la page ?');
+</script>
+
+<script language="javascript">
+    document.onkeypress=function(e){e=e||window.event;
+    var key=e.which?e.which:event.keyCode;
+    if (key==32) alert('Frappe de la touche espace !');
+    else alert('Frappe de la touche de code '+key)}
+</script>
+
+<script>
+
+function change(elem)
+{
+     elem.style.backgroundColor="yellow";
+}
+
+</script>
+<script type="text/javascript"> function refresh() { window.location.reload(false); } </script>
+<input type="button" onclick="refresh()" value="Rafraichir" id ="convert" /> <br/><br/>
+
+
+</body>
+</html>
+
